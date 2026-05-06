@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>To-Do App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f2ef;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #0a66c2;
+        }
+
+        .container {
+            background: white;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+        }
+
+        input {
+            padding: 10px;
+            width: 70%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #0a66c2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004182;
+        }
+
+        ul {
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            list-style: none;
+            background: #eef3f8;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li:hover {
+            background: #dce6f1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>To-Do App</h1>
+
+    <div class="container">
+        <input type="text" id="task" placeholder="Enter task">
+        <button id="add">Add</button>
+
+        <ul id="list"></ul>
+    </div>
+
+</body>
+ <script>
+        let taskInput = document.getElementById("task")
+        let addBtn = document.getElementById("add")
+        let list = document.getElementById("list")
+
+        addBtn.addEventListener("click", function() {
+            let task = taskInput.value
+
+            if(task === "") return
+
+            let li = document.createElement("li")
+            li.innerText = task
+
+            li.addEventListener("click", function() {
+                li.remove()
+            })
+
+            list.appendChild(li)
+
+            taskInput.value = ""
+        })
+    </script>
+
+</html>
